@@ -1,0 +1,14 @@
+{
+  "name": "My-project-1",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/Ary2941/My-project-1.git",
+  "author": "Amaury <amaury2941@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "sequelize": "^6.37.0"
+  }
+}
