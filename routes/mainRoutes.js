@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
+
+
+// Rotas para a página 
 const mainController = require('../controllers/mainController');
+router.get('/', mainController.index); 
+router.get('/outra-pagina', mainController.outraPagina); // Rota para outra página
+router.get('/usuario/:id', mainController.visualizarUsuario); // Exemplo de rota com parâmetros
+router.post('/formulario', mainController.processarFormulario); // Rota para processar dados do formulário
 
-// Rota para a página inicial
-router.get('/', mainController.index);
-
-// Rota para outra página
-router.get('/outra-pagina', mainController.outraPagina);
-
-// Exemplo de rota com parâmetros
-router.get('/usuario/:id', mainController.visualizarUsuario);
-
-// Rota para processar dados do formulário
-router.post('/formulario', mainController.processarFormulario);
+// Rotas para CRUD de Usuario
+const UsuarioController = require('../controllers/UsuarioController');
+router.get('/usuarios', UsuarioController.listar);
+router.post('/usuarios', UsuarioController.criar);
+router.put('/usuarios/:id', UsuarioController.atualizar);
+router.delete('/usuarios/:id', UsuarioController.excluir);
 
 module.exports = router;

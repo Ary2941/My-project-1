@@ -1,0 +1,4 @@
+1. Criar o Modelo Usuario:
+2. Criar o Controlador UsuarioController:
+3. Criar as Rotas em routes/mainRoutes.js:
+4. Configurar o Arquivo Principal app.js:
