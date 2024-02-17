@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const sequelize = require('./config/sequelizeConfig');
+const Usuario = require('./models/Usuario');
 
 const app = express();
 
@@ -8,16 +10,22 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Configuração das rotas
-const mainRoutes = require('./routes/mainRoutes');
-app.use('/', mainRoutes);
-
 // Configuração do diretório de visualizações
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Configuração de arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Testar a conexão com o banco de dados
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Conexão com o banco de dados estabelecida com sucesso.');
+  })
+  .catch((err) => {
+    console.error('Erro ao conectar ao banco de dados:', err);
+  });
 
 // Iniciar o servidor
 const port = process.env.PORT || 3000;
