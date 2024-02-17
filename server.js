@@ -34,6 +34,11 @@ sequelize
 // Sincronizar modelos com o banco de dados (criar tabelas)
 sequelize.sync();
 
+// Rota principal redireciona para a lista de usuários
+app.get('/', (req, res) => {
+  res.redirect('/usuarios');
+});
+
 // Iniciar o servidor
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

@@ -64,6 +64,26 @@ const UsuarioController = {
       res.status(500).send('Erro interno do servidor');
     }
   },
+
+
+  // Renderizar a página de cadastro
+  renderizarCadastro(req, res) {
+    res.render('cadastro');
+  },
+  
+  // Processar o formulário de cadastro
+  async cadastrar(req, res) {
+    const { nome, email, senha } = req.body;
+
+    try {
+      const novoUsuario = await Usuario.create({ nome, email, senha });
+      res.json(novoUsuario);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
 };
 
 module.exports = UsuarioController;

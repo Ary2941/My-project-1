@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 // Rotas para a página 
 const mainController = require('../controllers/mainController');
 router.get('/', mainController.index); 
@@ -15,5 +14,9 @@ router.get('/usuarios', UsuarioController.listar);
 router.post('/usuarios', UsuarioController.criar);
 router.put('/usuarios/:id', UsuarioController.atualizar);
 router.delete('/usuarios/:id', UsuarioController.excluir);
+
+// Rota para o formulário de cadastro
+router.get('/cadastro', UsuarioController.renderizarCadastro);
+router.post('/cadastro', UsuarioController.cadastrar);
 
 module.exports = router;
