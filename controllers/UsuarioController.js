@@ -84,6 +84,79 @@ const UsuarioController = {
     }
   },
 
+  // Listar todas as propriedades de um usuário
+  async listPropriedades(req, res) {
+    try {
+      const usuarioId = req.params.usuarioId;
+      const propriedades = await Propriedade.findAll({ where: { UsuarioId: usuarioId } });
+      res.json(propriedades);
+    } catch (error) {
+      console.error('Erro ao obter propriedades:', error);
+      res.status(500).json({ error: 'Erro ao obter propriedades' });
+    }
+  },
+
+  // Criar uma nova propriedade para um usuário
+  async createPropriedade(req, res) {
+    try {
+      const usuarioId = req.params.usuarioId;
+      const { nome } = req.body;
+      const propriedade = await Propriedade.create({ nome, UsuarioId: usuarioId });
+      res.json(propriedade);
+    } catch (error) {
+      console.error('Erro ao criar propriedade:', error);
+      res.status(500).json({ error: 'Erro ao criar propriedade' });
+    }
+  },
+
+  // Obter uma propriedade por ID
+  async showPropriedade(req, res) {
+    try {
+      const propriedade = await Propriedade.findByPk(req.params.id);
+      if (propriedade) {
+        res.json(propriedade);
+      } else {
+        res.status(404).json({ error: 'Propriedade não encontrada' });
+      }
+    } catch (error) {
+      console.error('Erro ao obter propriedade por ID:', error);
+      res.status(500).json({ error: 'Erro ao obter propriedade por ID' });
+    }
+  },
+
+  // Atualizar uma propriedade por ID
+  async updatePropriedade(req, res) {
+    try {
+      const { nome } = req.body;
+      const propriedade = await Propriedade.findByPk(req.params.id);
+      if (propriedade) {
+        propriedade.nome = nome;
+        await propriedade.save();
+        res.json(propriedade);
+      } else {
+        res.status(404).json({ error: 'Propriedade não encontrada' });
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar propriedade:', error);
+      res.status(500).json({ error: 'Erro ao atualizar propriedade' });
+    }
+  },
+
+  // Excluir uma propriedade por ID
+  async destroyPropriedade(req, res) {
+    try {
+      const propriedade = await Propriedade.findByPk(req.params.id);
+      if (propriedade) {
+        await propriedade.destroy();
+        res.json({ message: 'Propriedade excluída com sucesso' });
+      } else {
+        res.status(404).json({ error: 'Propriedade não encontrada' });
+      }
+    } catch (error) {
+      console.error('Erro ao excluir propriedade:', error);
+      res.status(500).json({ error: 'Erro ao excluir propriedade' });
+    }
+  },
 };
 
 module.exports = UsuarioController;

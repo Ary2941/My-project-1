@@ -5,7 +5,7 @@
     host: 'localhost',
     username: 'root',
     password: 'root',
-    database: 'ORMDB',
+    database: 'database_development',
   });
   
   module.exports = sequelize;
