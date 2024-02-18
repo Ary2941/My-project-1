@@ -3,6 +3,8 @@ const router = express.Router();
 const mainController = require('../controllers/mainController');
 const UsuarioController = require('../controllers/UsuarioController');
 const PropriedadeController = require('../controllers/PropriedadeController');
+const CulturaController = require('../controllers/CulturaController');
+
 
 // Rotas para a página principal
 router.get('/', mainController.index);
@@ -25,6 +27,13 @@ router.get('/usuarios/:usuarioId/propriedades', PropriedadeController.listar);
 router.post('/usuarios/:usuarioId/propriedades', PropriedadeController.criar);
 router.put('/propriedades/:id', PropriedadeController.atualizar);
 router.delete('/propriedades/:id', PropriedadeController.excluir);
+
+
+// Rotas para CRUD de cultura
+router.get('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController.listar);
+router.post('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController.criar);
+router.put('/culturas/:id', CulturaController.atualizar);
+router.delete('/culturas/:id', CulturaController.excluir);
 
 // Rota para o formulário de cadastro de propriedade
 router.get('/usuarios/:usuarioId/cadastro-propriedade', PropriedadeController.renderizarCadastro);
