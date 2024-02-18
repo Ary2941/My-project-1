@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // Encontre um usuário existente para associar às propriedades
-    const propriedadeId = await queryInterface.rawSelect('propriedades', {
+    const propriedadeId = await queryInterface.rawSelect('Propriedades', {
       where: {}, // Você pode ajustar isso conforme necessário
     }, ['id']);
 
@@ -18,6 +18,7 @@ module.exports = {
         ciclo_Crescimento: 60,
         espacamento_Entre_Plantas: 40.0,
         profundidade_Plantio: 10.0,
+        propriedadeId: propriedadeId, // chave estrangeira
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -26,6 +27,7 @@ module.exports = {
         ciclo_Crescimento: 30,
         espacamento_Entre_Plantas: 20.0,
         profundidade_Plantio: 5.0,
+        propriedadeId: propriedadeId,  // chave estrangeira
         createdAt: new Date(),
         updatedAt: new Date(),
       },

@@ -18,6 +18,7 @@ const CulturaController = {
 
   // Criar uma nova Cultura para um usuário
   async criar(req, res) {
+    console.log(req.params.propriedadeId);
     try {
       const propriedadeId = req.params.propriedadeId;
       const {nome_Cultura,ciclo_Crescimento,espacamento_Entre_Plantas,profundidade_Plantio} = req.body;
@@ -25,15 +26,15 @@ const CulturaController = {
       const propriedade = await Propriedade.findByPk(propriedadeId);
 
       if (propriedade) {
-        const cultura = await Cultura.create({
+        const novacultura = await Cultura.create({
           nome_Cultura,
           ciclo_Crescimento,
           espacamento_Entre_Plantas,
           profundidade_Plantio,
-          propriedadeId: propriedadeId,
+          PropriedadeId: propriedadeId,
         });
 
-        res.json(cultura);
+        res.json(novacultura);
       } else {
         res.status(404).json({ error: 'Usuário não encontrado' });
       }
