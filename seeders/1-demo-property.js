@@ -2,11 +2,18 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const usuarioId = 1; // Defina o ID do usuário ao qual as propriedades serão associadas
+    // Encontre um usuário existente para associar às propriedades
+    const usuarioId = await queryInterface.rawSelect('Usuarios', {
+      where: {}, // Você pode ajustar isso conforme necessário
+    }, ['id']);
+
+    if (!usuarioId) {
+      console.error('Nenhum usuário encontrado. Certifique-se de ter usuários no banco de dados antes de executar esta seed.');
+      return;
+    }
 
     await queryInterface.bulkInsert('Propriedades', [
       {
-        id: 1, // Defina o ID da propriedade
         nome: 'Propriedade 1',
         UsuarioId: usuarioId,
         createdAt: new Date(),
@@ -20,9 +27,6 @@ module.exports = {
       },
       // Adicione mais registros conforme necessário
     ], {});
-
-    // Atualize a sequência de ID para o próximo valor disponível
-    await queryInterface.sequelize.query("SELECT setval('\"Propriedades_id_seq\"', (SELECT MAX(id) FROM \"Propriedades\"))");
   },
 
   down: async (queryInterface, Sequelize) => {
