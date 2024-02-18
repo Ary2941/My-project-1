@@ -18,15 +18,29 @@ const PropriedadeController = {
   async criar(req, res) {
     try {
       const usuarioId = req.params.usuarioId;
-      const { nome } = req.body;
-      const propriedade = await Propriedade.create({ nome, UsuarioId: usuarioId });
-      res.json(propriedade);
+      const { nome, Localizacao_GPS, Tamanho_Area, Tipo_Solo, Altitude } = req.body;
+      
+      const usuario = await Usuario.findByPk(usuarioId);
+
+      if (usuario) {
+        const propriedade = await Propriedade.create({
+          nome,
+          Localizacao_GPS,
+          Tamanho_Area,
+          Tipo_Solo,
+          Altitude,
+          UsuarioId: usuarioId,
+        });
+
+        res.json(propriedade);
+      } else {
+        res.status(404).json({ error: 'Usuário não encontrado' });
+      }
     } catch (error) {
-      console.error('Erro ao criar propriedade:', error);
-      res.status(500).json({ error: 'Erro ao criar propriedade' });
+      console.error('Erro ao criar propriedade para o usuário:', error);
+      res.status(500).json({ error: 'Erro ao criar propriedade para o usuário' });
     }
   },
-
   // Atualizar uma propriedade por ID
   async atualizar(req, res) {
     try {

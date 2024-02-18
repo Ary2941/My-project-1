@@ -9,7 +9,22 @@ const Propriedade = sequelize.define('Propriedade', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  // Outras propriedades da propriedade
+  Localizacao_GPS: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Tamanho_Area: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  Tipo_Solo: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Altitude: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
 });
 
 // Defina a relação entre Usuario e Propriedade
