@@ -21,7 +21,7 @@ const Cultura = sequelize.define('Cultura', {
   },
 });
 
-// Defina a relação entre Usuario e Propriedade
+// Defina a relação entre Propriedade e Cultura
 Propriedade.hasMany(Cultura);
 Cultura.belongsTo(Propriedade);
 

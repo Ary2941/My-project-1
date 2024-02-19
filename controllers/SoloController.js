@@ -1,0 +1,98 @@
+// SoloController.js
+const Solo = require('../models/solo');
+const Propriedade = require('../models/Propriedade');
+
+
+const SoloController = {
+  // Listar todas as Solos de um usuário
+  async listar(req, res) {
+    try {
+      const propriedadeId = req.params.propriedadeId;
+      const Solos = await Solo.findAll({ where: { propriedadeId: propriedadeId } });
+      res.json(Solos);
+    } catch (error) {
+      console.error('Erro ao obter Solos:', error);
+      res.status(500).json({ error: 'Erro ao obter Solos' });
+    }
+  },
+
+  // Criar uma nova Solo para um usuário
+  async criar(req, res) {
+    console.log(req.params.propriedadeId);
+    try {
+      const propriedadeId = req.params.propriedadeId;
+      const {
+        pH_Solo,
+        Nivel_Nitrogenio,
+        Nivel_Fosforo,
+        Nivel_Potassio} = req.body;
+      
+      const propriedade = await Propriedade.findByPk(propriedadeId);
+
+      if (propriedade) {
+        const novasolo = await Solo.create({
+          pH_Solo,
+          Nivel_Nitrogenio,
+          Nivel_Fosforo,
+          profundidade_Plantio,
+          Nivel_Potassio,
+          PropriedadeId: propriedadeId,
+        });
+
+        res.json(novasolo);
+      } else {
+        res.status(404).json({ error: 'Usuário não encontrado' });
+      }
+    } catch (error) {
+      console.error('Erro ao criar Solo para o usuário:', error);
+      res.status(500).json({ error: 'Erro ao criar Solo para o usuário' });
+    }
+  },
+  // Atualizar uma Solo por ID
+  async atualizar(req, res) {
+    try {
+      const { nome } = req.body;
+      const Solo = await Solo.findByPk(req.params.id);
+      if (Solo) {
+        Solo.nome_Solo = nome;
+        await Solo.save();
+        res.json(Solo);
+      } else {
+        res.status(404).json({ error: 'Solo não encontrada' });
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar Solo:', error);
+      res.status(500).json({ error: 'Erro ao atualizar Solo' });
+    }
+  },
+
+  // Excluir uma Solo por ID
+  async excluir(req, res) {
+    try {
+      const Solo = await Solo.findByPk(req.params.id);
+      if (Solo) {
+        await Solo.destroy();
+        res.json({ message: 'Solo excluída com sucesso' });
+      } else {
+        res.status(404).json({ error: 'Solo não encontrada' });
+      }
+    } catch (error) {
+      console.error('Erro ao excluir Solo:', error);
+      res.status(500).json({ error: 'Erro ao excluir Solo' });
+    }
+  },
+
+  // Rota para renderizar o formulário de cadastro de Solo
+  renderizarCadastro(req, res) {
+    // Lógica para renderizar o formulário de cadastro de Solo
+    res.send('Formulário de Cadastro de Solo');
+  },
+
+  // Rota para cadastrar uma Solo a partir do formulário
+  cadastrar(req, res) {
+    // Lógica para processar o formulário e cadastrar a Solo
+    res.send('Solo cadastrada com sucesso');
+  },
+};
+
+module.exports = SoloController;

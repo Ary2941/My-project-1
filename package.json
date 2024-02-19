@@ -6,7 +6,10 @@
   "author": "Amaury <amaury2941@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "database-fill":"yarn sequelize-cli db:migrate && yarn sequelize-cli db:seed:all",
+    "database-empty":"yarn sequelize-cli db:seed:undo:all && yarn sequelize-cli db:migrate:undo:all"
+
   },
   "dependencies": {
     "body-parser": "^1.20.2",

@@ -21,7 +21,7 @@ const Clima = sequelize.define('Clima', {
   },
 });
 
-// Defina a relação entre Usuario e Propriedade
+// Defina a relação entre Propriedade e Clima
 Propriedade.hasOne(Clima);
 Clima.belongsTo(Propriedade);
 

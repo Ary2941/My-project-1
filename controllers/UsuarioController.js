@@ -1,5 +1,5 @@
 // controllers/UsuarioController.js
-const Usuario = require('../models/Usuario');
+const Usuario = require('../models/usuario');
 
 const UsuarioController = {
   // Listar todos os usuários
