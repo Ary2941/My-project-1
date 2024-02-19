@@ -12,3 +12,9 @@ yarn sequelize-cli db:seed:all
 
 yarn sequelize-cli db:seed:undo:all 
 yarn sequelize-cli db:migrate:undo:all
+
+
+
+
+yarn sequelize-cli model:generate --name Solo --attributes pH_Solo:float,Nivel_Nitrogenio:float,
+Nivel_Fosforo:float,Nivel_Potassio:float
