@@ -2,25 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('culturas', {
+    await queryInterface.createTable('usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome_Cultura: {
+      nome: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      ciclo_Crescimento: {
-        type: Sequelize.INTEGER
+      email: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
-      espacamento_Entre_Plantas: {
-        type: Sequelize.FLOAT
+
+      senha: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
-      profundidade_Plantio: {
-        type: Sequelize.FLOAT
-      },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -32,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('culturas');
+    await queryInterface.dropTable('usuarios');
   }
 };

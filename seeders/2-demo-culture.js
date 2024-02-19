@@ -36,7 +36,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Propriedades', null, {});
+    await queryInterface.bulkDelete('Culturas', null, {});
   }
 };
 

@@ -4,6 +4,7 @@ const mainController = require('../controllers/mainController');
 const UsuarioController = require('../controllers/UsuarioController');
 const PropriedadeController = require('../controllers/PropriedadeController');
 const CulturaController = require('../controllers/CulturaController');
+const ClimaController = require('../controllers/ClimaController');
 
 
 // Rotas para a página principal
@@ -34,6 +35,14 @@ router.get('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController.lis
 router.post('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController.criar);
 router.put('/culturas/:id', CulturaController.atualizar);
 router.delete('/culturas/:id', CulturaController.excluir);
+
+// Rotas para CRUD de clima
+router.get('/usuarios/:usuarioId/:propriedadeId/climas', ClimaController.listar);
+router.post('/usuarios/:usuarioId/:propriedadeId/climas', ClimaController.criar);
+router.put('/climas/:id', CulturaController.atualizar);
+router.delete('/climas/:id', CulturaController.excluir);
+
+
 
 // Rota para o formulário de cadastro de propriedade
 router.get('/usuarios/:usuarioId/cadastro-propriedade', PropriedadeController.renderizarCadastro);
