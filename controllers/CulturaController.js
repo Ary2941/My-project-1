@@ -21,7 +21,11 @@ const CulturaController = {
     console.log(req.params.propriedadeId);
     try {
       const propriedadeId = req.params.propriedadeId;
-      const {nome_Cultura,ciclo_Crescimento,espacamento_Entre_Plantas,profundidade_Plantio} = req.body;
+      const {
+        nome_Cultura,
+        ciclo_Crescimento,
+        espacamento_Entre_Plantas,
+        profundidade_Plantio} = req.body;
       
       const propriedade = await Propriedade.findByPk(propriedadeId);
 
