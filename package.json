@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "database-fill":"yarn sequelize-cli db:migrate && yarn sequelize-cli db:seed:all",
-    "database-empty":"yarn sequelize-cli db:seed:undo:all && yarn sequelize-cli db:migrate:undo:all"
+    "db-fill":"yarn sequelize-cli db:migrate && yarn sequelize-cli db:seed:all",
+    "db-purge":"yarn sequelize-cli db:seed:undo:all && yarn sequelize-cli db:migrate:undo:all"
 
   },
   "dependencies": {
