@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelizeConfig');
+const Propriedade = require('./Propriedade'); // Altere o caminho conforme necessário
 
 const Solo = sequelize.define('Solo', {
   pH_Solo: {
