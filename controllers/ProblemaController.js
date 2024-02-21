@@ -1,15 +1,16 @@
 // ProblemaController.js
 const Problema = require('../models/Problema');
-const Usuario = require('../models/Propriedade');
-const Usuario = require('../models/Cultura');
+const Propriedade = require('../models/Propriedade');
+const Cultura = require('../models/Cultura');
+
 
 
 const ProblemaController = {
   // Listar todas as problemas de um usuário
   async listar(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
-      const problemas = await Problema.findAll({ where: { UsuarioId: usuarioId } });
+      const propriedadeId = req.params.propriedadeId;
+      const problemas = await Problema.findAll({ where: { PropriedadeId: propriedadeId } });
       res.json(problemas);
     } catch (error) {
       console.error('Erro ao obter problemas:', error);
@@ -20,17 +21,24 @@ const ProblemaController = {
   // Criar uma nova problema para uma propriedade
   async criar(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
-      const { descricao, observacoes} = req.body;
-      
-      const usuario = await Usuario.findByPk(usuarioId);
+      const propriedadeId = req.params.propriedadeId;
+      const culturaId = req.params.culturaId;
 
-      if (usuario) {
+      const { 
+        descricao, 
+        observacoes
+      } = req.body;
+      
+      const propriedade = await Propriedade.findByPk(propriedadeId);
+      const cultura = await Cultura.findByPk(culturaId);
+
+
+      if (propriedade && cultura) {
         const problema = await Problema.create({
           descricao,
           observacoes,
-          PropriedadeId: PropriedadeId,
-          CulturaId: CulturaId,
+          PropriedadeId: propriedadeId,
+          CulturaId: culturaId,
         });
 
         res.json(problema);

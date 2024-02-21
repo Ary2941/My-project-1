@@ -2,27 +2,33 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Problemas', {
+    await queryInterface.createTable('Solucoes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      descricao: {
+      diagnóstico: {
         allowNull: false,
+        type: Sequelize.STRING
+      },
+      acoes_recomendadas: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      monitoramentos: {
         type: Sequelize.STRING
       },
       observacoes: {
-        allowNull: false,
         type: Sequelize.STRING
       },
-      
-      PropriedadeId: {
+
+      ProblemaId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      CulturaId: {
+      UsuarioId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -38,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Solos');
+    await queryInterface.dropTable('Solucoes');
   }
 };

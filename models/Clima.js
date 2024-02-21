@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelizeConfig');
-const Clima = require('./Propriedade'); // Altere o caminho conforme necessário
+const Propriedade = require('./Propriedade'); // Altere o caminho conforme necessário
 
 const Clima = sequelize.define('Clima', {
   temperatura_Media: {

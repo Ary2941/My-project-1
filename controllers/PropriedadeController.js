@@ -1,6 +1,6 @@
 // PropriedadeController.js
 const Propriedade = require('../models/Propriedade');
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 const PropriedadeController = {
   // Listar todas as propriedades de um usuário

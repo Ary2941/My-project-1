@@ -1,11 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mainController = require('../controllers/mainController');
-const UsuarioController = require('../controllers/UsuarioController');
-const PropriedadeController = require('../controllers/PropriedadeController');
-const CulturaController = require('../controllers/CulturaController');
-const ClimaController = require('../controllers/ClimaController');
-const SoloController = require('../controllers/SoloController');
 
 // Função utilitária para criar rotas CRUD com base no controlador fornecido
 function criarRotasCrud(basePath, controller) {
@@ -15,26 +9,34 @@ function criarRotasCrud(basePath, controller) {
   router.delete(`${basePath}/:id`, controller.excluir);
 }
 
-// Rotas para a página principal
-router.get('/', mainController.index);
-router.get('/outra-pagina', mainController.outraPagina);
-router.get('/usuario/:id', mainController.visualizarUsuario);
-router.post('/formulario', mainController.processarFormulario);
-
 // Rotas para CRUD de Usuário
+const UsuarioController = require('../controllers/UsuarioController');
 criarRotasCrud('/usuarios', UsuarioController);
 
 // Rotas para CRUD de Propriedade
+const PropriedadeController = require('../controllers/PropriedadeController');
 criarRotasCrud('/usuarios/:usuarioId/propriedades', PropriedadeController);
 
 // Rotas para CRUD de Cultura
+const CulturaController = require('../controllers/CulturaController');
 criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController);
 
 // Rotas para CRUD de Clima
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/climas', ClimaController);
+const ClimaController = require('../controllers/ClimaController');
+criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/clima', ClimaController);
 
 // Rotas para CRUD de Solo
+const SoloController = require('../controllers/SoloController');
 criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/solo', SoloController);
+
+// Rotas para CRUD de Problema
+const ProblemaController = require('../controllers/ProblemaController');
+criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/problemas', ProblemaController);
+
+// Rotas para CRUD de Solucões
+const SolucaoController = require('../controllers/SolucaoController');
+criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/:problemaId/solucoes', SolucaoController);
+
 
 // Rota para o formulário de cadastro de usuário
 router.get('/cadastro', UsuarioController.renderizarCadastro);
