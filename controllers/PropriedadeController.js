@@ -1,8 +1,25 @@
 // PropriedadeController.js
 const Propriedade = require('../models/Propriedade');
-const Usuario = require('../models/Usuario');
+const Usuario = require('../models/usuario');
+
 
 const PropriedadeController = {
+
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Propriedade.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Propriedade não encontrada');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
+
   // Listar todas as propriedades de um usuário
   async listar(req, res) {
     try {

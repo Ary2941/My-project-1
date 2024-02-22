@@ -4,7 +4,21 @@ const Propriedade = require('../models/Propriedade');
 
 
 const ClimaController = {
-  // Listar todas as Climas de um usuário
+
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Clima.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Clima não encontrado');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
   async listar(req, res) {
     try {
       const propriedadeId = req.params.propriedadeId;

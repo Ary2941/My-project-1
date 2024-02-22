@@ -4,6 +4,23 @@ const Propriedade = require('../models/Propriedade');
 
 
 const SoloController = {
+  
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Solo.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Solo não encontrado');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
+
+
   // Listar todas as Solos de um usuário
   async listar(req, res) {
     try {

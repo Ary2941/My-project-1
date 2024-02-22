@@ -3,9 +3,22 @@ const Problema = require('../models/Problema');
 const Propriedade = require('../models/Propriedade');
 const Cultura = require('../models/Cultura');
 
-
-
 const ProblemaController = {
+
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Problema.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Problema não encontrado');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
   // Listar todas as problemas de um usuário
   async listar(req, res) {
     try {
