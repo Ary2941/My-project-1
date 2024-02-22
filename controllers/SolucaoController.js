@@ -1,11 +1,24 @@
 // SolucaoController.js
 const Solucao = require('../models/solucao');
 const Problema = require('../models/Problema');
-const Usuario = require('../models/Usuario');
-
-
+const Usuario = require('../models/usuario');
 
 const SolucaoController = {
+
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Solucao.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Solucao não encontrado');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+  
   // Listar todas as solucoes de um usuário
   async listar(req, res) {
     try {

@@ -1,7 +1,25 @@
 // controllers/UsuarioController.js
 const Usuario = require('../models/usuario');
 
+
+
 const UsuarioController = {
+
+  async self(req, res) {
+    const { id } = req.params;
+    try {
+      const entidade = await Usuario.findByPk(id);
+      if (!entidade) {
+        return res.status(404).send('Usuário não encontrado');
+      }
+      res.json(entidade);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
+
   // Listar todos os usuários
   async listar(req, res) {
     try {

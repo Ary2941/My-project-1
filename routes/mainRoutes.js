@@ -4,6 +4,7 @@ const router = express.Router();
 // Função utilitária para criar rotas CRUD com base no controlador fornecido
 function criarRotasCrud(basePath, controller) {
   router.get(`${basePath}`, controller.listar);
+  router.get(`${basePath}/:id`, controller.self);
   router.post(`${basePath}`, controller.criar);
   router.put(`${basePath}/:id`, controller.atualizar);
   router.delete(`${basePath}/:id`, controller.excluir);
