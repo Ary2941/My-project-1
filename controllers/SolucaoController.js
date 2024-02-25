@@ -33,7 +33,7 @@ const SolucaoController = {
   // Listar todas as solucoes de um usuário
   async listarByProblemaId(req, res) {
     try {
-      const problemaId = req.params.problemaId;
+      const problemaId = req.params.ProblemaId;
       const solucoes = await Solucao.findAll({ where: { ProblemaId: problemaId } });
       res.json(solucoes);
     } catch (error) {

@@ -33,7 +33,7 @@ const PropriedadeController = {
   // Listar todas as propriedades de um usuário
   async listarByUsuarioId(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
+      const usuarioId = req.params.UsuarioId;
       const propriedades = await Propriedade.findAll({ where: { UsuarioId: usuarioId } });
       res.json(propriedades);
     } catch (error) {

@@ -30,10 +30,10 @@ const CulturaController = {
     }
   },
 
-  async listarByUsuarioId(req, res) {
+  async listarByPropriedadeId(req, res) {
     try {
-      const propriedadeId = req.params.propriedadeId;
-      const Culturas = await Cultura.findAll({ where: { propriedadeId: propriedadeId } });
+      const propriedadeId = req.params.PropriedadeId;
+      const Culturas = await Cultura.findAll({ where: { PropriedadeId: propriedadeId } });
       res.json(Culturas);
     } catch (error) {
       console.error('Erro ao obter Culturas:', error);

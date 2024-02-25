@@ -35,8 +35,8 @@ const SoloController = {
   // Listar todas as Solos de um usuário
   async listarbyPropriedadeId(req, res) {
     try {
-      const propriedadeId = req.params.propriedadeId;
-      const Solos = await Solo.findAll({ where: { propriedadeId: propriedadeId } });
+      const propriedadeId = req.params.PropriedadeId;
+      const Solos = await Solo.findAll({ where: { PropriedadeId: propriedadeId } });
       res.json(Solos);
     } catch (error) {
       console.error('Erro ao obter Solos:', error);

@@ -32,8 +32,8 @@ const ClimaController = {
 
   async listarByPropriedadeId(req, res) {
     try {
-      const propriedadeId = req.params.propriedadeId;
-      const Climas = await Clima.findAll({ where: { propriedadeId: propriedadeId } });
+      const propriedadeId = req.params.PropriedadeId;
+      const Climas = await Clima.findAll({ where: { PropriedadeId: propriedadeId } });
       res.json(Climas);
     } catch (error) {
       console.error('Erro ao obter Climas:', error);

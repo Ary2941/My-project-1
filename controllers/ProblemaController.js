@@ -32,7 +32,7 @@ const ProblemaController = {
 
   async listarbyPropriedadeId(req, res) {
     try {
-      const propriedadeId = req.params.propriedadeId;
+      const propriedadeId = req.params.PropriedadeId;
       const problemas = await Problema.findAll({ where: { PropriedadeId: propriedadeId } });
       res.json(problemas);
     } catch (error) {

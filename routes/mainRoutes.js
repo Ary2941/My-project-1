@@ -17,22 +17,32 @@ criarRotasCrud('/usuarios', UsuarioController);
 // Rotas para CRUD de Propriedade
 const PropriedadeController = require('../controllers/PropriedadeController');
 criarRotasCrud('/propriedades', PropriedadeController);
+router.get('/usuarios/:UsuarioId/propriedades', PropriedadeController.listarByUsuarioId);
+
+
+
 
 // Rotas para CRUD de Cultura
 const CulturaController = require('../controllers/CulturaController');
 criarRotasCrud('/culturas', CulturaController);
+router.get('/propriedades/:PropriedadeId/culturas', CulturaController.listarByPropriedadeId);
 
 // Rotas para CRUD de Clima
 const ClimaController = require('../controllers/ClimaController');
 criarRotasCrud('/climas', ClimaController);
+router.get('/propriedades/:PropriedadeId/clima', ClimaController.listarByPropriedadeId);
+
 
 // Rotas para CRUD de Solo
 const SoloController = require('../controllers/SoloController');
 criarRotasCrud('/solos', SoloController);
+router.get('/propriedades/:PropriedadeId/solo', SoloController.listarbyPropriedadeId);
+
 
 // Rotas para CRUD de Problema
 const ProblemaController = require('../controllers/ProblemaController');
 criarRotasCrud('/problemas', ProblemaController);
+router.get('/propriedades/:PropriedadeId/problemas', ProblemaController.listarbyPropriedadeId);
 
 // Rotas para CRUD de Solucões
 const SolucaoController = require('../controllers/SolucaoController');
