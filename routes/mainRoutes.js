@@ -16,27 +16,27 @@ criarRotasCrud('/usuarios', UsuarioController);
 
 // Rotas para CRUD de Propriedade
 const PropriedadeController = require('../controllers/PropriedadeController');
-criarRotasCrud('/usuarios/:usuarioId/propriedades', PropriedadeController);
+criarRotasCrud('/propriedades', PropriedadeController);
 
 // Rotas para CRUD de Cultura
 const CulturaController = require('../controllers/CulturaController');
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/culturas', CulturaController);
+criarRotasCrud('/culturas', CulturaController);
 
 // Rotas para CRUD de Clima
 const ClimaController = require('../controllers/ClimaController');
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/clima', ClimaController);
+criarRotasCrud('/climas', ClimaController);
 
 // Rotas para CRUD de Solo
 const SoloController = require('../controllers/SoloController');
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/solo', SoloController);
+criarRotasCrud('/solos', SoloController);
 
 // Rotas para CRUD de Problema
 const ProblemaController = require('../controllers/ProblemaController');
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/problemas', ProblemaController);
+criarRotasCrud('/problemas', ProblemaController);
 
 // Rotas para CRUD de Solucões
 const SolucaoController = require('../controllers/SolucaoController');
-criarRotasCrud('/usuarios/:usuarioId/:propriedadeId/:problemaId/solucoes', SolucaoController);
+criarRotasCrud('/solucoes', SolucaoController);
 
 
 // Rota para o formulário de cadastro de usuário

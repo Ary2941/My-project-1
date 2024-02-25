@@ -1,7 +1,7 @@
 // SolucaoController.js
 const Solucao = require('../models/solucao');
 const Problema = require('../models/Problema');
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 const SolucaoController = {
 
@@ -18,9 +18,20 @@ const SolucaoController = {
       res.status(500).send('Erro interno do servidor');
     }
   },
+
+    // Listar todas as Culturas de um usuário
+    async listar(req, res) {
+      try {
+        const solucoes = await Solucao.findAll();
+        res.json(solucoes);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro interno do servidor');
+      }
+    },
   
   // Listar todas as solucoes de um usuário
-  async listar(req, res) {
+  async listarByProblemaId(req, res) {
     try {
       const problemaId = req.params.problemaId;
       const solucoes = await Solucao.findAll({ where: { ProblemaId: problemaId } });

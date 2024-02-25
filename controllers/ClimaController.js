@@ -19,7 +19,18 @@ const ClimaController = {
     }
   },
 
-  async listar(req, res) {
+    // Listar todas as Culturas de um usuário
+    async listar(req, res) {
+      try {
+        const clima = await Clima.findAll();
+        res.json(clima);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro interno do servidor');
+      }
+    },
+
+  async listarByPropriedadeId(req, res) {
     try {
       const propriedadeId = req.params.propriedadeId;
       const Climas = await Clima.findAll({ where: { propriedadeId: propriedadeId } });

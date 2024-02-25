@@ -4,12 +4,15 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/sequelizeConfig');
 const mainRoutes = require('./routes/mainRoutes');
+const cors = require('cors');
 
 const app = express();
 
 // Configuração do middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
+
 
 // Configuração do diretório de visualizações
 app.set('views', path.join(__dirname, 'views'));

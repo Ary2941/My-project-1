@@ -19,8 +19,18 @@ const ProblemaController = {
     }
   },
 
-  // Listar todas as problemas de um usuário
+  // Listar todas as Culturas de um usuário
   async listar(req, res) {
+    try {
+      const problemas = await Problema.findAll();
+      res.json(problemas);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
+  async listarbyPropriedadeId(req, res) {
     try {
       const propriedadeId = req.params.propriedadeId;
       const problemas = await Problema.findAll({ where: { PropriedadeId: propriedadeId } });

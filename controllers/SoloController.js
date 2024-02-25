@@ -19,10 +19,21 @@ const SoloController = {
     }
   },
 
+    // Listar todas as Culturas de um usuário
+    async listar(req, res) {
+      try {
+        const solo = await Solo.findAll();
+        res.json(solo);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro interno do servidor');
+      }
+    },
+    
 
 
   // Listar todas as Solos de um usuário
-  async listar(req, res) {
+  async listarbyPropriedadeId(req, res) {
     try {
       const propriedadeId = req.params.propriedadeId;
       const Solos = await Solo.findAll({ where: { propriedadeId: propriedadeId } });

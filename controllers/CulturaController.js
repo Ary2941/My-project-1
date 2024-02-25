@@ -22,6 +22,16 @@ const CulturaController = {
   // Listar todas as Culturas de um usuário
   async listar(req, res) {
     try {
+      const culturas = await Cultura.findAll();
+      res.json(culturas);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
+
+  async listarByUsuarioId(req, res) {
+    try {
       const propriedadeId = req.params.propriedadeId;
       const Culturas = await Cultura.findAll({ where: { propriedadeId: propriedadeId } });
       res.json(Culturas);

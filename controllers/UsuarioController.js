@@ -1,5 +1,5 @@
 // controllers/UsuarioController.js
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 
 

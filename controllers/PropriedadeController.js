@@ -1,6 +1,6 @@
 // PropriedadeController.js
 const Propriedade = require('../models/Propriedade');
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/Usuario');
 
 
 const PropriedadeController = {
@@ -19,9 +19,19 @@ const PropriedadeController = {
     }
   },
 
+    // Listar todos os usuários
+  async listar(req, res) {
+    try {
+      const propriedades = await Propriedade.findAll();
+      res.json(propriedades);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro interno do servidor');
+    }
+  },
 
   // Listar todas as propriedades de um usuário
-  async listar(req, res) {
+  async listarByUsuarioId(req, res) {
     try {
       const usuarioId = req.params.usuarioId;
       const propriedades = await Propriedade.findAll({ where: { UsuarioId: usuarioId } });
