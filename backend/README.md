@@ -8,6 +8,11 @@ Criando database no localhost (MySQL command line)
 CREATE DATABASE database_development;
 ```
 
+Instalando dependências
+```bash
+yarn
+```
+
 para importar migrations e seeds na database
 ```bash
 yarn db-fill
@@ -16,4 +21,10 @@ yarn db-fill
 para retirar migrations e seeds na database
 ```bash
 yarn db-purge
+```
+
+
+Iniciando aplicação (server)
+```bash
+yarn start
 ```
