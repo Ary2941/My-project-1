@@ -56,9 +56,10 @@ const SolucaoController = {
 
   // Criar uma nova solucao para uma problema
   async criar(req, res) {
+    console.log(req.body)
     try {
-      const problemaId = req.params.problemaId;
-      const usuarioId = req.params.usuarioId;
+      const problemaId = req.body.ProblemaId;
+      const usuarioId = req.body.UsuarioId;
 
       const { 
         diagnóstico, 

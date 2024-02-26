@@ -13,6 +13,8 @@
         </div>
       </div>
       <p v-else>Nenhuma solução associada a este problema.</p>
+
+      <button @click="NovaSolucao(problema.id)">sugerir solucao</button>
     </div>
   </template>
   
@@ -56,6 +58,10 @@
       verDetalhesSolucao(solucaoId) {
       // Navegar para a rota de detalhes da propriedade
       this.$router.push({ name: 'solucao', params: { SolucaoId: solucaoId } });
+    },
+      NovaSolucao(problemaId) {
+      // Navegar para a rota de detalhes da propriedade
+      this.$router.push({ name: 'novaSolucao', params: { ProblemaId: problemaId } });
     }
     }
   };
