@@ -5,7 +5,7 @@
       <h2>Detalhes da Solução</h2>
       <div v-if="solucao">
         <h3>Solução</h3>
-        <p>Diagnóstico: {{ solucao.diagnostico }}</p>
+        <p>Diagnóstico: {{ solucao.diagnóstico }}</p>
         <p>Ações Recomendadas: {{ solucao.acoes_recomendadas }}</p>
         <p>Monitoramentos: {{ solucao.monitoramentos }}</p>
         <p>Observações: {{ solucao.observacoes }}</p>
