@@ -7,7 +7,7 @@ Criando database no localhost (MySQL command line)
 ```bash
 CREATE DATABASE database_development;
 ```
-
+após isso configurar o database em backend/comfig
 Instalando dependências
 ```bash
 yarn
