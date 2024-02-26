@@ -42,6 +42,18 @@ const SolucaoController = {
     }
   },
 
+    // Listar todas as solucoes de um usuário
+  async listarByProblemaId(req, res) {
+    try {
+      const problemaId = req.params.ProblemaId;
+      const solucoes = await Solucao.findAll({ where: { ProblemaId: problemaId } });
+      res.json(solucoes);
+    } catch (error) {
+      console.error('Erro ao obter solucoes:', error);
+      res.status(500).json({ error: 'Erro ao obter solucoes' });
+    }
+  },
+
   // Criar uma nova solucao para uma problema
   async criar(req, res) {
     try {

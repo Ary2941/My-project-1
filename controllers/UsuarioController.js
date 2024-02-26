@@ -19,6 +19,18 @@ const UsuarioController = {
     }
   },
 
+  // Listar todas as propriedades de um usuário
+  async listarByemail(req, res) {
+    try {
+      const email = req.params.email;
+      const tal = await Usuario.findOne({ where: { email: email } });
+      res.json(tal);
+    } catch (error) {
+      console.error('Erro ao obter propriedades:', error);
+      res.status(500).json({ error: 'Erro ao obter propriedades' });
+    }
+  },
+
 
   // Listar todos os usuários
   async listar(req, res) {
@@ -31,6 +43,7 @@ const UsuarioController = {
     }
   },
 
+  
   // Criar um novo usuário
   async criar(req, res) {
     const { nome, email, senha } = req.body;

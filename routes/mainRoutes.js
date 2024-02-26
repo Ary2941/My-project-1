@@ -13,6 +13,8 @@ function criarRotasCrud(basePath, controller) {
 // Rotas para CRUD de Usuário
 const UsuarioController = require('../controllers/UsuarioController');
 criarRotasCrud('/usuarios', UsuarioController);
+router.get('/usuarios/email/:email', UsuarioController.listarByemail);
+
 
 // Rotas para CRUD de Propriedade
 const PropriedadeController = require('../controllers/PropriedadeController');
@@ -47,6 +49,8 @@ router.get('/propriedades/:PropriedadeId/problemas', ProblemaController.listarby
 // Rotas para CRUD de Solucões
 const SolucaoController = require('../controllers/SolucaoController');
 criarRotasCrud('/solucoes', SolucaoController);
+router.get('/problemas/:ProblemaId/solucoes', SolucaoController.listarByProblemaId);
+
 
 
 // Rota para o formulário de cadastro de usuário
