@@ -31,7 +31,7 @@ Node.js (com npm)
 yarn
 MySQL
 
-## backend
+## frontend
 Instalando dependências
 ```bash
 yarn
@@ -44,7 +44,7 @@ yarn serve
 endereço:   http://localhost:8080/
 
 
-## frontend
+## backend
 Criando database no localhost (MySQL command line)
 ```bash
 CREATE DATABASE database_development;
