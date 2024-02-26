@@ -10,13 +10,15 @@ import Problema from './components/ProblemaView.vue';
 import Solucao from './components/SolucaoView.vue';
 import Login from './components/LoginView.vue';
 import Cadastro from './components/CadastroView.vue';
-
-
+import NovaSolucao from './components/NovaSolucaoView.vue';
 
 
 const routes = [
   // Outras rotas podem estar aqui...
-
+  {
+    path: '/',
+    redirect: '/login',
+  },
 
   { path: '/propriedades', component: Principal },
 
@@ -60,6 +62,12 @@ const routes = [
     path: '/cadastro',
     name: 'cadastro',
     component: Cadastro,
+  },
+
+  {
+    path: '/novaSolucao/:ProblemaId',
+    name: 'novaSolucao',
+    component: NovaSolucao,
   },
 
 ];
