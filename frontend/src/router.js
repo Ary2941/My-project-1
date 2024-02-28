@@ -11,6 +11,10 @@ import Solucao from './components/SolucaoView.vue';
 import Login from './components/LoginView.vue';
 import Cadastro from './components/CadastroView.vue';
 import NovaSolucao from './components/NovaSolucaoView.vue';
+import NovaPropriedade from  './components/NovaPropriedadeView.vue';
+import NovaCultura from  './components/NovaCulturaView.vue';
+import NovoProblema from  './components/NovoProblemaView.vue';
+
 
 
 const routes = [
@@ -68,6 +72,25 @@ const routes = [
     path: '/novaSolucao/:ProblemaId',
     name: 'novaSolucao',
     component: NovaSolucao,
+  },
+
+
+  {
+    path: '/novaPropriedade',
+    name: 'novaPropriedade',
+    component: NovaPropriedade,
+  },
+
+  {
+    path: '/novaCultura/:PropriedadeId',
+    name: 'novaCultura',
+    component: NovaCultura,
+  },
+
+  {
+    path: '/novoProblema/:CulturaId',
+    name: 'novoProblema',
+    component: NovoProblema,
   },
 
 ];

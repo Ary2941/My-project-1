@@ -1,23 +1,22 @@
 <!-- Solucoes.vue -->
 
 <template>
-    <div>
+    <div class="entity-view-container">
       <h2>Detalhes da Solução</h2>
       <div v-if="solucao">
-        <h3>Solução</h3>
-        <p>Diagnóstico: {{ solucao.diagnóstico }}</p>
+        <h3>{{ solucao.diagnóstico }}</h3>
         <p>Ações Recomendadas: {{ solucao.acoes_recomendadas }}</p>
         <p>Monitoramentos: {{ solucao.monitoramentos }}</p>
-        <p>Observações: {{ solucao.observacoes }}</p>
+        <p>Observações: {{ solucao.observacoes }}</p>      
       </div>
-  
-      <h3>Usuário que Sugeriu a Solução</h3>
       <div v-if="usuario">
-        <p>Nome: {{ usuario.nome }}</p>
-        <p>Email: {{ usuario.email }}</p>
+        <p>Sugerido por: {{ usuario.email }}</p>
       </div>
       <p v-else>Nenhum usuário associado a esta solução.</p>
     </div>
+
+    <button @click="voltar">Voltar </button>
+
   </template>
   
   <script>
@@ -58,12 +57,52 @@
           .catch(error => {
             console.error('Erro ao carregar usuário associado à solução:', error);
           });
+      },
+      voltar(){
+        this.$router.back();
       }
     }
   };
   </script>
   
   <style scoped>
-  /* Estilos opcionais para o componente */
+  .data-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+  .entity-view-container {
+    background-color: lightgreen;
+
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  .entity-list, .entity-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .entity-list li, .entity-list li {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+  }
+  
+  .entity-list li:hover, .entity-list li:hover {
+    background-color: #e0e0e0;
+  }
   </style>
   

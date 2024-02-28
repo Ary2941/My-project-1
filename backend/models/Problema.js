@@ -4,12 +4,6 @@ const Propriedade = require('./Propriedade'); // Altere o caminho conforme neces
 const Cultura = require('./Cultura'); // Altere o caminho conforme necessário
 
 const Problema = sequelize.define('Problema', {
-  id:{
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey:true
-  },
-
   descricao: {
     type: DataTypes.STRING,
     allowNull: false,

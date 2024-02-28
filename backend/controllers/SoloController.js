@@ -36,7 +36,7 @@ const SoloController = {
   async listarbyPropriedadeId(req, res) {
     try {
       const propriedadeId = req.params.PropriedadeId;
-      const Solos = await Solo.findAll({ where: { PropriedadeId: propriedadeId } });
+      const Solos = await Solo.findOne({ where: { PropriedadeId: propriedadeId } });
       res.json(Solos);
     } catch (error) {
       console.error('Erro ao obter Solos:', error);
@@ -46,25 +46,25 @@ const SoloController = {
 
   // Criar uma nova Solo para um usuário
   async criar(req, res) {
-    console.log(req.params.propriedadeId);
     try {
-      const propriedadeId = req.params.propriedadeId;
       const {
         pH_Solo,
         Nivel_Nitrogenio,
         Nivel_Fosforo,
-        Nivel_Potassio} = req.body;
+        Profundidade_Plantio,
+        Nivel_Potassio,
+        PropriedadeId} = req.body;
       
-      const propriedade = await Propriedade.findByPk(propriedadeId);
+      const propriedade = await Propriedade.findByPk(PropriedadeId);
 
       if (propriedade) {
         const novasolo = await Solo.create({
           pH_Solo,
           Nivel_Nitrogenio,
           Nivel_Fosforo,
-          profundidade_Plantio,
+          Profundidade_Plantio,
           Nivel_Potassio,
-          PropriedadeId: propriedadeId,
+          PropriedadeId: PropriedadeId,
         });
 
         res.json(novasolo);

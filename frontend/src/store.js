@@ -16,4 +16,9 @@ export default createStore({
     },
     
   },
+  actions:{
+    AOBA() {
+      console.log("AOBAAA");
+    }
+  }
 });
