@@ -2,10 +2,10 @@
 
 <template>
   <div class="entity-view-container">
-    <h2>Detalhes da Propriedade</h2>
+    <h3>Detalhes da Propriedade</h3>
 
     <div v-if="propriedade">
-      <h3>{{ propriedade.nome }}</h3>
+      <h2>{{ propriedade.nome }}</h2>
       <div v-if="proprietário">
       <p>proprietário: {{ proprietário.nome }} ({{ proprietário.email }})</p>
       </div>
@@ -19,7 +19,7 @@
 
     <div class="data-container">
       <div v-if="clima">
-        <h3>Clima</h3>
+        <h2>Clima</h2>
         <p>Temperatura Média: {{ clima.temperatura_Media }}</p>
         <p>Precipitação Anual: {{ clima.precipitacao_Anual }}</p>
         <p>Umidade Relativa: {{ clima.umidade_Relativa }}</p>
@@ -27,7 +27,7 @@
       </div>
 
       <div v-if="solo">
-        <h3>Solo</h3>
+        <h2>Solo</h2>
         <p>pH do Solo: {{ solo.pH_Solo }}</p>
         <p>Nível de Nitrogênio: {{ solo.Nivel_Nitrogenio }}</p>
         <p>Nível de Fósforo: {{ solo.Nivel_Fosforo }}</p>
@@ -38,7 +38,7 @@
 
     <div v-if="culturas.length > 0">
       <h3>Culturas</h3>
-      <ul class="entity-list" id="culturas">
+      <ul class="culturas-list" id="culturas">
         <li v-for="cultura in culturas" :key="cultura.id" @click="verDetalhesCultura(cultura.id)">
           <p>{{ cultura.nome }}</p>
 
@@ -200,10 +200,17 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2,
-h3 {
+h2 {
   color: #333;
 }
+
+h3 {
+    display: flex;
+    margin: 0; /* Remover margens padrão */
+    font-size: 24px; /* Tamanho da fonte */
+    margin-right: auto; /* Mover para a direita */
+  }
+
 
 .entity-list,
 .entity-list {
@@ -246,5 +253,30 @@ h3 {
 #problemas li:hover {
   background-color: lightpink;
 }
+
+
+.culturas-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  justify-content: center; /* Centraliza os itens horizontalmente */
+}
+
+.culturas-list li {
+  width: 100px; /* Tamanho do círculo */
+  height: 100px; /* Tamanho do círculo */
+  background-color: #f0f0f0; /* Cor de fundo dos círculos */
+  border-radius: 50%; /* Transforma o elemento em um círculo */
+  margin: 10px; /* Espaçamento entre os círculos */
+  display: flex; /* Permite centralizar conteúdo */
+  justify-content: center; /* Centraliza conteúdo horizontalmente */
+  align-items: center; /* Centraliza conteúdo verticalmente */
+  cursor: pointer; /* Mostrar cursor ao passar por cima */
+}
+
+.culturas-list li:hover {
+  background-color: #e0e0e0; /* Altera a cor de fundo no hover */
+}
+
 </style>
-  

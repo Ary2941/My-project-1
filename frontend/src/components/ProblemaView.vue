@@ -2,8 +2,8 @@
 
 <template>
   <div class="entity-view-container">
-    <h2>Detalhes do Problema</h2>
-    <h3>{{ problema.descricao }}</h3>
+    <h3>Detalhes do Problema</h3>
+    <h2>{{ problema.descricao }}</h2>
     <p>Observações: {{ problema.observacoes }}</p>
     <div>
 
@@ -78,6 +78,9 @@ export default {
   
 
 <style scoped>
+
+
+  
 .data-container {
   display: flex;
   justify-content: space-between;
@@ -93,10 +96,16 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2,
-h3 {
+h2 {
   color: #333;
 }
+
+h3 {
+    display: flex;
+    margin: 0; /* Remover margens padrão */
+    font-size: 24px; /* Tamanho da fonte */
+    margin-right: auto; /* Mover para a direita */
+  }
 
 .entity-list,
 .entity-list {

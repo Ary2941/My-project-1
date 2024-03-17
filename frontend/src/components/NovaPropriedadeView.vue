@@ -192,6 +192,7 @@ export default {
                 this.cadastrarClima();
                 this.cadastrarSolo();
                 alert('propriedade cadastrada com sucesso!');
+                this.$router.back();
 
         });
         },

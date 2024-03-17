@@ -92,26 +92,23 @@ h3 {
   color: #333;
 }
 
-.culturas-list,
-.problemas-list {
-  list-style: none;
-  padding: 0;
-}
+.culturas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Cria colunas automáticas de tamanho mínimo de 200px */
+    grid-gap: 20px; /* Espaçamento entre os itens */
+    list-style-type: none; /* Remover marcadores de lista */
+    padding: 0; /* Remover preenchimento padrão */
+  }
 
-.culturas-list li,
-.problemas-list li {
-  cursor: pointer;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  transition: background-color 0.3s;
-}
+  .culturas-list li {
+    background-color: #f0f0f0; /* Cor de fundo dos itens */
+    padding: 10px; /* Espaçamento interno dos itens */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostrar cursor ao passar por cima */
+  }
 
-.culturas-list li:hover,
-.problemas-list li:hover {
-  background-color: #e0e0e0;
-}
+  .culturas-list li:hover {
+    background-color: #e0e0e0; /* Alterar cor de fundo no hover */
+  }
 </style>
   

@@ -2,22 +2,22 @@
 
 <template>
     <div class="entity-view-container">
-      <h2>{{ cultura.nome_Cultura }}</h2>
+      <h2>{{ cultura.nome }}</h2>
       <p>Ciclo de Crescimento: {{ cultura.ciclo_Crescimento }}</p>
       <p>Espaçamento entre Plantas: {{ cultura.espacamento_Entre_Plantas }}</p>
       <p>Profundidade de Plantio: {{ cultura.profundidade_Plantio }}</p>
 
     
       <div v-if="problemas.length > 0">
-      <h3>Problemas</h3>
-      <ul class="entity-list" id="problemas">
-        <li v-for="problema in problemas" :key="problema.id" @click="verDetalhesProblema(problema.id)">
-          <p>{{ problema.descricao }}</p>
-        </li>
-      </ul>
-      <button @click="NovoProblema()">novo problema</button>
+        <h3>Problemas</h3>
+        <ul class="entity-list" id="problemas">
+          <li v-for="problema in problemas" :key="problema.id" @click="verDetalhesProblema(problema.id)">
+            <p>{{ problema.descricao }}</p>
+          </li>
+        </ul>
+      </div>
+    <button @click="NovoProblema(cultura.id)">novo problema</button>
 
-    </div>
 
     
     </div>
@@ -32,6 +32,7 @@
     data() {
       return {
         cultura: {
+          nome: null,
           ciclo_Crescimento: null,
           espacamento_Entre_Plantas: null,
           profundidade_Plantio: null
@@ -45,7 +46,6 @@
       this.carregarCultura()
       .then(() => {
         this.carregarProblemas(this.cultura.PropriedadeId);
-        console.log(this.proprietário);
       });
 
 
@@ -85,8 +85,8 @@
         this.$router.back();
 
       },
-      NovoProblema() {
-        this.$router.push({ name: 'novoProblema', params: {  } });
+      NovoProblema(CulturaId) {
+        this.$router.push({ name: 'novoProblema', params: {CulturaId } });
     },
 
     verDetalhesProblema(ProblemaId) {

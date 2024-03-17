@@ -55,6 +55,7 @@
                 profundidade_Plantio: null,
                 PropriedadeId: null
               };
+              this.$router.back();
             } else {
               console.error('Erro ao cadastrar cultura!:', response.status);
             }

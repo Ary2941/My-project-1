@@ -2,9 +2,9 @@
 
 <template>
     <div class="entity-view-container">
-      <h2>Detalhes da Solução</h2>
+      <h3>Detalhes da Solução</h3>
       <div v-if="solucao">
-        <h3>{{ solucao.diagnóstico }}</h3>
+        <h2>{{ solucao.diagnóstico }}</h2>
         <p>Ações Recomendadas: {{ solucao.acoes_recomendadas }}</p>
         <p>Monitoramentos: {{ solucao.monitoramentos }}</p>
         <p>Observações: {{ solucao.observacoes }}</p>      
@@ -82,8 +82,15 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  h2, h3 {
+  h2{
     color: #333;
+  }
+  
+  h3 {
+    display: flex;
+    margin: 0; /* Remover margens padrão */
+    font-size: 24px; /* Tamanho da fonte */
+    margin-right: auto; /* Mover para a direita */
   }
   
   .entity-list, .entity-list {

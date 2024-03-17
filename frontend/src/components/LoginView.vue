@@ -42,7 +42,7 @@
 
   
                 // Redireciona para a página de usuários após o login bem-sucedido
-                router.push({ name: 'usuario', params: { UsuarioId: usuario.id } });
+                router.push({ name: 'perfil', params: {  } });
               } else {
                 console.error('Credenciais inválidas. Por favor, tente novamente.');
               }

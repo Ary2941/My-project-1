@@ -14,14 +14,13 @@ import NovaSolucao from './components/NovaSolucaoView.vue';
 import NovaPropriedade from  './components/NovaPropriedadeView.vue';
 import NovaCultura from  './components/NovaCulturaView.vue';
 import NovoProblema from  './components/NovoProblemaView.vue';
-
-
+import profile from  './components/PerfilView.vue';
 
 const routes = [
   // Outras rotas podem estar aqui...
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/perfil',
   },
 
   { path: '/propriedades', component: Principal },
@@ -31,6 +30,13 @@ const routes = [
     name: 'propriedade',
     component: Propriedade
   },
+
+  {
+    path: '/perfil',
+    name: 'perfil',
+    component: profile
+  },
+
 
   {
     path: '/usuarios/:UsuarioId',

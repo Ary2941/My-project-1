@@ -8,7 +8,7 @@
             <input type="text" id="descricao" v-model="problema.descricao" required>
 
             <label for="observacoes">Observações:</label>
-            <input type="number" id="observacoes" v-model="problema.observacoes" required>
+            <input type="text" id="observacoes" v-model="problema.observacoes" required>
 
             <button type="submit">Cadastrar</button>
         </form>
@@ -86,7 +86,9 @@ export default {
         cadastrarProblema() {
             this.step1().then(() => {
             this.step2();
-            alert('propriedade cadastrada com sucesso!');
+            alert('Caso aberto com sucesso! aguarde por soluções');
+            this.$router.back();
+
         });
         },
 
