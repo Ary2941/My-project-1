@@ -76,7 +76,9 @@ yarn
 
 <h2>database</h2>
 
-<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/29ec6c17-e044-4e8c-bade-e8c58644e056" id="V_Ak8DNkpK0y"></iframe></div>
+<div style="width: 480px; height: 360px; margin: 10px; position: relative;">
+  <iframe allowfullscreen frameborder="0" style="width:480px; height:360px" src="https://lucid.app/documents/embedded/29ec6c17-e044-4e8c-bade-e8c58644e056" id="OaBkVo2Y5SEi"></iframe>
+</div>
 
 </body>
 </html>
