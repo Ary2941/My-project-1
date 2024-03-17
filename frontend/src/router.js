@@ -15,6 +15,8 @@ import NovaPropriedade from  './components/NovaPropriedadeView.vue';
 import NovaCultura from  './components/NovaCulturaView.vue';
 import NovoProblema from  './components/NovoProblemaView.vue';
 import profile from  './components/PerfilView.vue';
+import LoginX from  './components/LoginTecnico.vue';
+
 
 const routes = [
   // Outras rotas podem estar aqui...
@@ -36,7 +38,6 @@ const routes = [
     name: 'perfil',
     component: profile
   },
-
 
   {
     path: '/usuarios/:UsuarioId',
@@ -66,6 +67,12 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login,
+  },
+
+  {
+    path: '/loginX',
+    name: 'loginX',
+    component: LoginX,
   },
 
   {

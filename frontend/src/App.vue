@@ -42,6 +42,8 @@ export default {
       // Volta para a rota de perfil do usuário
       store.commit('setAuthentication', false);
       store.commit('setUsuarioId', NaN);
+      store.commit('setTechnician', false);
+
       this.$router.push({ name: 'login', params: { } });
     },
   },

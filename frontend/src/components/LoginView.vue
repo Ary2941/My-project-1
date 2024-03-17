@@ -44,13 +44,17 @@
                 // Redireciona para a página de usuários após o login bem-sucedido
                 router.push({ name: 'perfil', params: {  } });
               } else {
+                alert('Credenciais inválidas. Por favor, tente novamente.');
+
                 console.error('Credenciais inválidas. Por favor, tente novamente.');
               }
             } else {
+              alert('Usuário não encontrado. Por favor, verifique o email.');
               console.error('Usuário não encontrado. Por favor, verifique o email.');
             }
           })
           .catch(error => {
+            alert('Erro ao verificar credenciais:');
             console.error('Erro ao verificar credenciais:', error);
           });
       };

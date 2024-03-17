@@ -24,7 +24,7 @@
           <textarea v-model="solucao.observacoes"></textarea>
         </div>
   
-        <button type="submit">Salvar Solução</button>
+        <button v-if="tecnico" type="submit">Salvar Solução</button>
       </form>
       <button  @click="voltar">voltar</button>
 
@@ -44,17 +44,22 @@
         monitoramentos: '',
         observacoes: '',
         ProblemaId: parseInt(this.$route.params.ProblemaId),
-        UsuarioId: store.state.usuarioId
-        }
+        TecnicoId: store.state.usuarioId,
+        },
+        tecnico: null
       };
+    },
+    mounted(){
+      this.tecnico = store.state.isTechnician;
+
     },
     methods: {
       salvarSolucao() {
         console.log(this.solucao);
-        axios.post('http://localhost:3000/solucoes/', this.solucao)
+        axios.post('http://localhost:3000/solucoes', this.solucao)
            .then(response => {
             console.log(response.status)
-            if (response.status === 200) {
+            if (response.status === 200 && this.tecnico) {
                 alert('solucao cadastrado com sucesso!');
                 this.solucao = {
                 diagnóstico:'',
@@ -65,10 +70,12 @@
                 
             }
             else{
+                alert('Erro ao cadastrar solucao')
                 console.error('Erro ao cadastrar solucao:', response.status);
             }
            })
            .catch(error => {
+                alert('Erro ao cadastrar solucao')
                 console.error('Erro ao cadastrar solucao:', error);
            });
       },

@@ -8,15 +8,17 @@
     <div>
 
     </div>
-    <h3>Soluções</h3>
+    <h3 v-if="solucoes.length > 0">Soluções</h3>
+    <h3 v-else>Nenhuma solução ainda...</h3>
+
     <div>
-      <ul v-if="solucoes.length > 0" class="entity-list">
+      <ul  class="entity-list">
 
         <li v-for="solucao in solucoes" :key="solucao.id" @click="verDetalhesSolucao(solucao.id)">
           <p> {{ solucao.diagnóstico }}</p>
         </li>
       </ul>
-      <button @click="NovaSolucao(problema.id)">sugerir solucao</button>
+      <button v-if="tecnico" @click="NovaSolucao(problema.id)">sugerir solucao</button>
     </div>
 
   </div>
@@ -25,17 +27,21 @@
   
 <script>
 import axios from 'axios';
+import store from '../store.js';
+
 
 export default {
   data() {
     return {
       problema: {},
-      solucoes: []
+      solucoes: [],
+      tecnico: null
     };
   },
   mounted() {
     // Obtém o ID do problema da rota
     const problemaId = this.$route.params.ProblemaId;
+    this.tecnico = store.state.isTechnician;
 
     // Faz solicitações para obter dados do problema e suas soluções
     this.carregarProblema(problemaId);

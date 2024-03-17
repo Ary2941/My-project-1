@@ -21,6 +21,8 @@
   
   <script>
   import axios from 'axios';
+  import store from '../store.js';
+
   
   export default {
     data() {
@@ -32,9 +34,11 @@
     mounted() {
       // Obtém o ID da solução da rota
       const solucaoId = this.$route.params.SolucaoId;
+      this.usuario = store.state.usuarioId;
   
       // Faz solicitações para obter dados da solução e do usuário associado
       this.carregarSolucao(solucaoId);
+      this.carregarUsuario(this.usuario)
     },
     methods: {
       carregarSolucao(solucaoId) {
@@ -50,7 +54,7 @@
           });
       },
       carregarUsuario(usuarioId) {
-        axios.get(`http://localhost:3000/usuarios/${usuarioId}`)
+        axios.get(`http://localhost:3000/tecnicos/${usuarioId}`)
           .then(response => {
             this.usuario = response.data;
           })
