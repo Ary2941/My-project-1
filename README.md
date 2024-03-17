@@ -33,9 +33,9 @@ Versionamento feito pelo Github
 [RF031] um diagnóstico pode ser fechado ou aberto, sendo fechados casos com soluções já estabelecidas e abertos casos que tem que ser respondidos por técnicos para serem concluídos.*PENDENTE
 
 ## Dependências
-Node.js (com npm)
-yarn
-MySQL
+- Node.js (com npm)
+- yarn
+- MySQL
 
 ## frontend
 Instalando dependências
