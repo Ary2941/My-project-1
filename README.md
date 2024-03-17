@@ -40,6 +40,7 @@ MySQL
 ## frontend
 Instalando dependências
 ```bash
+npm install yarn
 yarn
 ```
 
