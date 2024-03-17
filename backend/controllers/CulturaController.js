@@ -1,5 +1,5 @@
 // CulturaController.js
-const Cultura = require('../models/Cultura');
+const Cultura = require('../models/cultura');
 const Propriedade = require('../models/Propriedade');
 
 
@@ -43,29 +43,28 @@ const CulturaController = {
 
   // Criar uma nova Cultura para um usuário
   async criar(req, res) {
-    console.log(req.params.propriedadeId);
     try {
-      const propriedadeId = req.params.propriedadeId;
       const {
-        nome_Cultura,
+        nome,
         ciclo_Crescimento,
         espacamento_Entre_Plantas,
-        profundidade_Plantio} = req.body;
+        profundidade_Plantio,
+        PropriedadeId} = req.body;
       
-      const propriedade = await Propriedade.findByPk(propriedadeId);
+      const propriedade = await Propriedade.findByPk(PropriedadeId);
 
       if (propriedade) {
         const novacultura = await Cultura.create({
-          nome_Cultura,
+          nome,
           ciclo_Crescimento,
           espacamento_Entre_Plantas,
           profundidade_Plantio,
-          PropriedadeId: propriedadeId,
+          PropriedadeId: PropriedadeId,
         });
 
         res.json(novacultura);
       } else {
-        res.status(404).json({ error: 'Usuário não encontrado' });
+        res.status(404).json({ error: 'propriedade não encontrada!' });
       }
     } catch (error) {
       console.error('Erro ao criar Cultura para o usuário:', error);
@@ -78,7 +77,7 @@ const CulturaController = {
       const { nome } = req.body;
       const Cultura = await Cultura.findByPk(req.params.id);
       if (Cultura) {
-        Cultura.nome_Cultura = nome;
+        Cultura.nome = nome;
         await Cultura.save();
         res.json(Cultura);
       } else {

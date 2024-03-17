@@ -1,9 +1,9 @@
 <!-- CadastroSolucoes.vue -->
 
 <template>
-    <div>
+    <div class="cadastro-container">
       <h2>Cadastro de Soluções</h2>
-      <form @submit.prevent="salvarSolucao">
+      <form @submit.prevent="salvarSolucao"  class="cadastro-form">
         <div>
           <label for="diagnostico">Diagnóstico:</label>
           <textarea v-model="solucao.diagnóstico" required></textarea>
@@ -26,6 +26,8 @@
   
         <button type="submit">Salvar Solução</button>
       </form>
+      <button  @click="voltar">voltar</button>
+
     </div>
   </template>
   
@@ -69,12 +71,55 @@
            .catch(error => {
                 console.error('Erro ao cadastrar solucao:', error);
            });
+      },
+      voltar(){
+        this.$router.back();
       }
     }
   };
   </script>
   
-  <style scoped>
-  /* Estilos específicos para este componente, se necessário */
-  </style>
+  <style>  
+  .cadastro-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
   
+  .cadastro-form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  </style>  

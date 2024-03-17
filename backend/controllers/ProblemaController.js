@@ -32,8 +32,8 @@ const ProblemaController = {
 
   async listarbyPropriedadeId(req, res) {
     try {
-      const propriedadeId = req.params.PropriedadeId;
-      const problemas = await Problema.findAll({ where: { PropriedadeId: propriedadeId } });
+      const PropriedadeId = req.params.PropriedadeId;
+      const problemas = await Problema.findAll({ where: { PropriedadeId: PropriedadeId } });
       res.json(problemas);
     } catch (error) {
       console.error('Erro ao obter problemas:', error);
@@ -44,24 +44,24 @@ const ProblemaController = {
   // Criar uma nova problema para uma propriedade
   async criar(req, res) {
     try {
-      const propriedadeId = req.params.propriedadeId;
-      const culturaId = req.params.culturaId;
+      const PropriedadeId = req.body.PropriedadeId;
+      const CulturaId = req.body.CulturaId;
 
       const { 
         descricao, 
         observacoes
       } = req.body;
       
-      const propriedade = await Propriedade.findByPk(propriedadeId);
-      const cultura = await Cultura.findByPk(culturaId);
+      const propriedade = await Propriedade.findByPk(PropriedadeId);
+      const cultura = await Cultura.findByPk(CulturaId);
 
 
       if (propriedade && cultura) {
         const problema = await Problema.create({
           descricao,
           observacoes,
-          PropriedadeId: propriedadeId,
-          CulturaId: culturaId,
+          PropriedadeId: PropriedadeId,
+          CulturaId: CulturaId,
         });
 
         res.json(problema);
