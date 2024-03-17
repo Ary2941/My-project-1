@@ -10,11 +10,12 @@ Se o produtor rural conseguisse de uma forma mais simples se aproveitar das evol
 ## Descrição geral
 
 O projeto é um protótipo de uma ferramenta web de um sistema hipotético de combate a pragas
-Backend feito em Node.js. 
-Frontend da aplicação será baseado no framework Vue.js
-Gerenciamento do database em MySQL
-Arquitetura MCV*
-Versionamento feito pelo Github
+
+- backend feito em Node.js. 
+- Frontend em Vue.js
+- Gerenciamento do database em MySQL
+- Arquitetura MCV
+- Versionamento feito pelo Github
 
 ## Requisitos funcionais
 
