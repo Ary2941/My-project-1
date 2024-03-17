@@ -13,12 +13,12 @@ module.exports = {
     }
 
     // Encontre um usuário existente para associar às soluções
-    const usuarioId = await queryInterface.rawSelect('Usuarios', {
+    const TecnicoId = await queryInterface.rawSelect('Tecnicos', {
       where: {}, // Você pode ajustar isso conforme necessário
     }, ['id']);
 
-    if (!usuarioId) {
-      console.error('Nenhum usuário encontrado. Certifique-se de ter usuários no banco de dados antes de executar esta seed.');
+    if (!TecnicoId) {
+      console.error('Nenhum técnico encontrado. Certifique-se de ter técnico no banco de dados antes de executar esta seed.');
       return;
     }
 
@@ -29,7 +29,7 @@ module.exports = {
         monitoramentos: 'Realizar inspeção regular',
         observacoes: 'Nenhuma observação adicional',
         ProblemaId: problemaId,
-        UsuarioId: usuarioId,
+        TecnicoId: TecnicoId,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -39,7 +39,7 @@ module.exports = {
         monitoramentos: 'Verificar regularmente a saúde das plantas',
         observacoes: 'Acompanhar o progresso do tratamento',
         ProblemaId: problemaId,
-        UsuarioId: usuarioId,
+        TecnicoId: TecnicoId,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
