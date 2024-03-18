@@ -12,8 +12,8 @@ Se o produtor rural conseguisse de uma forma mais simples se aproveitar das evol
 
 ## Vantagens & Desvantagens
 
-- plataforma fácil de utilização
-- intuitivo
+- fácil de utilização
+- funções intuitivas
 
 porém...
 
