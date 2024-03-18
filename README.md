@@ -41,7 +41,11 @@ O projeto é um protótipo de uma ferramenta web de um sistema hipotético de co
 
 [RF022] o técnico ou cliente pode consultar os dados dele no sistema
 
-[RF031] um diagnóstico pode ser fechado ou aberto, sendo fechados casos com soluções já estabelecidas e abertos casos que tem que ser respondidos por técnicos para serem concluídos.*PENDENTE
+[RF031] um diagnóstico pode ser fechado ou aberto, sendo fechados casos com soluções já estabelecidas e abertos casos que tem que ser respondidos por técnicos para serem concluídos.
+
+ ## Database do projeto
+ 
+ ![Database do projeto](https://github.com/Ary2941/My-project-1/assets/155399987/32a3902d-29d2-4be2-b663-37fdb82a1fcd)
 
 ## Dependências
 - Node.js (com npm)
@@ -85,9 +89,6 @@ yarn start
 ```
  - Local:   http://localhost:3000/   
 
- ## Database do projeto
- 
- ![Database do projeto](https://github.com/Ary2941/My-project-1/assets/155399987/32a3902d-29d2-4be2-b663-37fdb82a1fcd)
 
 
 
