@@ -14,7 +14,7 @@ Se o produtor rural conseguisse de uma forma mais simples se aproveitar das evol
 
 - plataforma fácil de utilização
 - intuitivo
-
+porém...
 - é mais cômodo usar um grupo de facebook sobre o assunto ou outra plataforma
 
 ## Descrição geral
