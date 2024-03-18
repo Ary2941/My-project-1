@@ -32,18 +32,18 @@ O projeto é um protótipo de uma ferramenta web de um sistema hipotético de co
 
 ## Requisitos funcionais
 
-[RF001] o sistema permite cadastro de cliente
-[RF002] o sistema permite login de cliente
-[RF003] o cliente tem acesso a um perfil onde ele pode ver as propriedades
-[RF004] o cliente pode cadastrar novas propriedades pelo sueu perfil
-[RF005] o cliente pode acessar uma página com dados das propriedades (temperatura, solo, culturas e etc.)
-[RF006] o cliente pode cadastrar novas culturas em cada propriedade
-[RF007] o cliente pode acessar uma página com dados das culturas 
-[RF008] o cliente pode acessar um problema envolvendo esta cultura
-[RF009] o cliente tem acesso a soluções propostas por técnicos.
-[RF010] o sistema permite login de técnico
-[RF011] o técnico tem acesso a um perfil onde ele pode ver os problemas que foram cadastrados 
-[RF012] o técnico pode sugerir uma solução ao problema do cliente.
+- [RF001] o sistema permite cadastro de cliente
+- [RF002] o sistema permite login de cliente
+- [RF003] o cliente tem acesso a um perfil onde ele pode ver as propriedades
+- [RF004] o cliente pode cadastrar novas propriedades pelo sueu perfil
+- [RF005] o cliente pode acessar uma página com dados das propriedades (temperatura, solo, culturas e etc.)
+- [RF006] o cliente pode cadastrar novas culturas em cada propriedade
+- [RF007] o cliente pode acessar uma página com dados das culturas 
+- [RF008] o cliente pode acessar um problema envolvendo esta cultura
+- [RF009] o cliente tem acesso a soluções propostas por técnicos.
+- [RF010] o sistema permite login de técnico
+- [RF011] o técnico tem acesso a um perfil onde ele pode ver os problemas que foram cadastrados 
+- [RF012] o técnico pode sugerir uma solução ao problema do cliente.
 
  ## Database do projeto
  
