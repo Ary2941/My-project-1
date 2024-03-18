@@ -51,6 +51,7 @@ router.get('/propriedades/:PropriedadeId/solo', SoloController.listarbyProprieda
 const ProblemaController = require('../controllers/ProblemaController');
 criarRotasCrud('/problemas', ProblemaController);
 router.get('/propriedades/:PropriedadeId/problemas', ProblemaController.listarbyPropriedadeId);
+router.get('/culturas/:CulturaId/problemas',ProblemaController.listarbyCulturaId)
 
 // Rotas para CRUD de Solucões
 const SolucaoController = require('../controllers/SolucaoController');
