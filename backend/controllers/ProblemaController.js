@@ -41,7 +41,17 @@ const ProblemaController = {
     }
   },
 
-  // Criar uma nova problema para uma propriedade
+  async listarbyCulturaId(req, res) {
+    try {
+      const CulturaId = req.params.CulturaId;
+      const culturas = await Problema.findAll({ where: { CulturaId: CulturaId } });
+      res.json(culturas);
+    } catch (error) {
+      console.error('Erro ao obter problemas:', error);
+      res.status(500).json({ error: 'Erro ao obter problemas' });
+    }
+  },
+
   async criar(req, res) {
     try {
       const PropriedadeId = req.body.PropriedadeId;
@@ -73,7 +83,7 @@ const ProblemaController = {
       res.status(500).json({ error: 'Erro ao criar problema para o usuário' });
     }
   },
-  // Atualizar uma problema por ID
+
   async atualizar(req, res) {
     try {
       const { nome } = req.body;
