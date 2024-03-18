@@ -33,7 +33,7 @@ const ClimaController = {
   async listarByPropriedadeId(req, res) {
     try {
       const propriedadeId = req.params.PropriedadeId;
-      const Climas = await Clima.findAll({ where: { PropriedadeId: propriedadeId } });
+      const Climas = await Clima.findOne({ where: { PropriedadeId: propriedadeId } });
       res.json(Climas);
     } catch (error) {
       console.error('Erro ao obter Climas:', error);
@@ -45,14 +45,14 @@ const ClimaController = {
   async criar(req, res) {
     console.log(req.params.propriedadeId);
     try {
-      const propriedadeId = req.params.propriedadeId;
       const {
         temperatura_Media,
         precipitacao_Anual,
         umidade_Relativa,
-        horas_sol_diarias} = req.body;
+        horas_sol_diarias,
+        PropriedadeId} = req.body;
       
-      const propriedade = await Propriedade.findByPk(propriedadeId);
+      const propriedade = await Propriedade.findByPk(PropriedadeId);
 
       if (propriedade) {
         const novaclima = await Clima.create({
@@ -60,7 +60,7 @@ const ClimaController = {
           precipitacao_Anual,
           umidade_Relativa,
           horas_sol_diarias,
-          PropriedadeId: propriedadeId,
+          PropriedadeId: PropriedadeId,
         });
 
         res.json(novaclima);

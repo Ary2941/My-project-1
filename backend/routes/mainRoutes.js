@@ -15,6 +15,12 @@ const UsuarioController = require('../controllers/UsuarioController');
 criarRotasCrud('/usuarios', UsuarioController);
 router.get('/usuarios/email/:email', UsuarioController.listarByemail);
 
+// Rotas para CRUD de Técnico
+const TecnicoController = require('../controllers/TecnicoController');
+criarRotasCrud('/tecnicos', TecnicoController);
+router.get('/tecnicos/email/:email', TecnicoController.listarByemail);
+
+
 
 // Rotas para CRUD de Propriedade
 const PropriedadeController = require('../controllers/PropriedadeController');

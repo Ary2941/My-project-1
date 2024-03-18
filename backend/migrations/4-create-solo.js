@@ -21,6 +21,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.FLOAT
       },
+      Profundidade_Plantio: {
+        allowNull: false,
+        type: Sequelize.FLOAT
+      },
       Nivel_Potassio: {
         allowNull: false,
         type: Sequelize.FLOAT

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/sequelizeConfig');
 const Problema = require('./Problema'); // Altere o caminho conforme necessário
-const Usuario = require('./Usuario'); // Altere o caminho conforme necessário
+const Tecnico = require('./Tecnico'); // Altere o caminho conforme necessário
 
 const Solução = sequelize.define('Solucoes', {
   diagnóstico: {
@@ -26,7 +26,7 @@ Solução.belongsTo(Problema);
 
 
 // Defina a relação entre Solução e Usuario
-Usuario.hasMany(Solução);
-Solução.belongsTo(Usuario);
+Tecnico.hasMany(Solução);
+Solução.belongsTo(Tecnico);
 
 module.exports = Solução;

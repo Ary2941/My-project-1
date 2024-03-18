@@ -20,6 +20,16 @@ module.exports = {
           horas_sol_diarias: 8,
           createdAt: new Date(),
           updatedAt: new Date(),
+          propriedadeId: propriedadeId+1, // chave estrangeira
+        },
+
+        {
+          temperatura_Media: 30.5,
+          precipitacao_Anual: 1500,
+          umidade_Relativa: 66,
+          horas_sol_diarias: 8,
+          createdAt: new Date(),
+          updatedAt: new Date(),
           propriedadeId: propriedadeId, // chave estrangeira
         },
         // Adicione mais registros conforme necessário

@@ -3,7 +3,7 @@ const sequelize = require('../config/sequelizeConfig');
 const Propriedade = require('./Propriedade'); // Altere o caminho conforme necessário
 
 const Cultura = sequelize.define('Cultura', {
-  nome_Cultura: {
+  nome: {
     type: DataTypes.STRING,
     allowNull: false,
   },

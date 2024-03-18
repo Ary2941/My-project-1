@@ -1,9 +1,9 @@
 <!-- Cadastro.vue -->
 
 <template>
-    <div>
+    <div class="cadastro-container">
       <h2>Cadastro de Usuário</h2>
-      <form @submit.prevent="cadastrarUsuario">
+      <form @submit.prevent="cadastrarUsuario" class="cadastro-form">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" v-model="usuario.nome" required>
   
@@ -18,6 +18,8 @@
   
         <button type="submit">Cadastrar</button>
       </form>
+      <button  @click="voltarParaLogin">logar em conta já existente</button>
+
     </div>
   </template>
   
@@ -63,11 +65,52 @@
             console.error('Erro ao cadastrar usuário:', error);
           });
       },
+
+      voltarParaLogin(){
+        this.$router.push({ name: 'login' });
+      }
+      
     },
   };
   </script>
   
   <style scoped>
-  /* Adicione estilos conforme necessário */
-  </style>
-  
+
+.cadastro-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro-form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>  
