@@ -62,7 +62,7 @@ Iniciando aplicação
 ```bash
 yarn serve
 ```
-endereço:   http://localhost:8080/
+- endereço: http://localhost:8080/
 
 ## Backend
 Criando database no localhost (MySQL command line)
