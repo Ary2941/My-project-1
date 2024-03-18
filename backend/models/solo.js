@@ -12,6 +12,11 @@ const Solo = sequelize.define('Solo', {
     allowNull: false,
     unique: true,
   },
+  Profundidade_Plantio: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+    unique: true,
+  },
   Nivel_Fosforo: {
     type: DataTypes.FLOAT,
     allowNull: false,

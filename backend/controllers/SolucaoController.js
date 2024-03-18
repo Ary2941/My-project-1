@@ -1,7 +1,7 @@
 // SolucaoController.js
 const Solucao = require('../models/solucao');
 const Problema = require('../models/Problema');
-const Usuario = require('../models/Usuario');
+const Tecnico = require('../models/Tecnico');
 
 const SolucaoController = {
 
@@ -29,18 +29,6 @@ const SolucaoController = {
         res.status(500).send('Erro interno do servidor');
       }
     },
-  
-  // Listar todas as solucoes de um usuário
-  async listarByProblemaId(req, res) {
-    try {
-      const problemaId = req.params.ProblemaId;
-      const solucoes = await Solucao.findAll({ where: { ProblemaId: problemaId } });
-      res.json(solucoes);
-    } catch (error) {
-      console.error('Erro ao obter solucoes:', error);
-      res.status(500).json({ error: 'Erro ao obter solucoes' });
-    }
-  },
 
     // Listar todas as solucoes de um usuário
   async listarByProblemaId(req, res) {
@@ -59,7 +47,7 @@ const SolucaoController = {
     console.log(req.body)
     try {
       const problemaId = req.body.ProblemaId;
-      const usuarioId = req.body.UsuarioId;
+      const TecnicoId = req.body.TecnicoId;
 
       const { 
         diagnóstico, 
@@ -69,22 +57,22 @@ const SolucaoController = {
       } = req.body;
       
       const problema = await Problema.findByPk(problemaId);
-      const usuario = await Usuario.findByPk(usuarioId);
+      const tecnico = await Tecnico.findByPk(TecnicoId);
 
 
-      if (problema && usuario) {
+      if (problema && tecnico) {
         const solucao = await Solucao.create({
           diagnóstico,
           acoes_recomendadas,
           monitoramentos,
           observacoes,
           ProblemaId: problemaId,
-          UsuarioId: usuarioId,
+          TecnicoId: TecnicoId,
         });
 
         res.json(solucao);
       } else {
-        res.status(404).json({ error: 'Problema ou usuario não encontrada' });
+        res.status(404).json({ error: 'Problema ou Tecnico não encontrada' });
       }
     } catch (error) {
       console.error('Erro ao criar solucao para o usuário:', error);

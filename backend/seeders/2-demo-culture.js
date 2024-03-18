@@ -14,20 +14,20 @@ module.exports = {
 
     await queryInterface.bulkInsert('Culturas', [
       {
-        nome_Cultura: 'Tomate',
+        nome: 'Tomate',
         ciclo_Crescimento: 60,
         espacamento_Entre_Plantas: 40.0,
         profundidade_Plantio: 10.0,
-        propriedadeId: propriedadeId, // chave estrangeira
+        PropriedadeId: propriedadeId, // chave estrangeira
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        nome_Cultura: 'Alface',
+        nome: 'Alface',
         ciclo_Crescimento: 30,
         espacamento_Entre_Plantas: 20.0,
         profundidade_Plantio: 5.0,
-        propriedadeId: propriedadeId,  // chave estrangeira
+        PropriedadeId: propriedadeId,  // chave estrangeira
         createdAt: new Date(),
         updatedAt: new Date(),
       },

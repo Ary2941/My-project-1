@@ -45,10 +45,9 @@ const PropriedadeController = {
   // Criar uma nova propriedade para um usuário
   async criar(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
-      const { nome, Localizacao_GPS, Tamanho_Area, Tipo_Solo, Altitude } = req.body;
+      const { nome, Localizacao_GPS, Tamanho_Area, Tipo_Solo, Altitude,UsuarioId } = req.body;
       
-      const usuario = await Usuario.findByPk(usuarioId);
+      const usuario = await Usuario.findByPk(UsuarioId);
 
       if (usuario) {
         const propriedade = await Propriedade.create({
@@ -57,7 +56,7 @@ const PropriedadeController = {
           Tamanho_Area,
           Tipo_Solo,
           Altitude,
-          UsuarioId: usuarioId,
+          UsuarioId: UsuarioId,
         });
 
         res.json(propriedade);

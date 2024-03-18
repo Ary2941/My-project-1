@@ -11,13 +11,18 @@ import Solucao from './components/SolucaoView.vue';
 import Login from './components/LoginView.vue';
 import Cadastro from './components/CadastroView.vue';
 import NovaSolucao from './components/NovaSolucaoView.vue';
+import NovaPropriedade from  './components/NovaPropriedadeView.vue';
+import NovaCultura from  './components/NovaCulturaView.vue';
+import NovoProblema from  './components/NovoProblemaView.vue';
+import profile from  './components/PerfilView.vue';
+import LoginX from  './components/LoginTecnico.vue';
 
 
 const routes = [
   // Outras rotas podem estar aqui...
   {
     path: '/',
-    redirect: '/login',
+    redirect: '/perfil',
   },
 
   { path: '/propriedades', component: Principal },
@@ -26,6 +31,12 @@ const routes = [
     path: '/propriedades/:PropriedadeId',
     name: 'propriedade',
     component: Propriedade
+  },
+
+  {
+    path: '/perfil',
+    name: 'perfil',
+    component: profile
   },
 
   {
@@ -59,6 +70,12 @@ const routes = [
   },
 
   {
+    path: '/loginX',
+    name: 'loginX',
+    component: LoginX,
+  },
+
+  {
     path: '/cadastro',
     name: 'cadastro',
     component: Cadastro,
@@ -68,6 +85,25 @@ const routes = [
     path: '/novaSolucao/:ProblemaId',
     name: 'novaSolucao',
     component: NovaSolucao,
+  },
+
+
+  {
+    path: '/novaPropriedade',
+    name: 'novaPropriedade',
+    component: NovaPropriedade,
+  },
+
+  {
+    path: '/novaCultura/:PropriedadeId',
+    name: 'novaCultura',
+    component: NovaCultura,
+  },
+
+  {
+    path: '/novoProblema/:CulturaId',
+    name: 'novoProblema',
+    component: NovoProblema,
   },
 
 ];
