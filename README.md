@@ -11,23 +11,24 @@ Se o produtor rural conseguisse de uma forma mais simples se aproveitar das evol
 
 O projeto é um protótipo de uma ferramenta web de um sistema hipotético de combate a pragas
 
-- backend feito em Node.js. 
+- backend feito em Node.js.
 - Frontend em Vue.js
-- Gerenciamento do database em MySQL
+- Gerenciamento da database em MySQL
+- ORM feito em sequelize
 - Arquitetura MCV
 - Versionamento feito pelo Github
 
 ## Requisitos funcionais
 
-[RF001] o sistema deve permitir cadastro de usuário (cliente e técnico). *PARCIAL 
+[RF001] o sistema deve permitir cadastro de usuário (cliente e técnico). 
 
 [RF011] o cliente ou técnico pode consultar os dados dele no sistema
 
-[RF012] o técnico deve emitir um diagnóstico com base no caso atual do cliente *PENDENTE
+[RF012] o técnico deve emitir um diagnóstico com base no caso atual do cliente
 
-[RF013] o técnico deve ter acesso a outros diagnósticos que o mesmo fez *PENDENTE
+[RF013] o técnico deve ter acesso a outros diagnósticos que o mesmo fez
 
-[RF021] o técnico pode adicionar sugestões de controle biológico e alternativas *PENDENTE
+[RF021] o técnico pode adicionar sugestões de controle biológico e alternativas
 
 [RF022] o técnico ou cliente pode consultar os dados dele no sistema
 
