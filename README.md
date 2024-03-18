@@ -1,12 +1,3 @@
-
-# Projeto Parte 3 - DSW
-
-
-## Introdução
-
-O controle de pragas na agricultura é fundamental para uma boa colheita, garantindo uma boa produtividade e a qualidade dos produtos agrícolas. Dessa forma, um bom planejamento e monitoramento dos plantios, a fim de identificar rapidamente qualquer tipo de praga que possa atingir a plantação, é essencial para evitar perdas no campo.
-Se o produtor rural conseguisse de uma forma mais simples se aproveitar das evoluções tecnológicas desenvolvidas pela agricultura 4.0, teríamos um melhor combate das pragas agrícolas, um sistema inteligente capaz de elaborar estratégias e/ou sugerir ações de controle de pestes melhoraria este cenário de combate à pestes, e ainda poderia servir de transição do modelo atual de combate através de defensivos químicos para ações de controle biológico
-
 ## Aplicações
 - Auxilio de pequenos produtores no combate de pragas e doenças (agricultura).
 
@@ -89,7 +80,3 @@ Iniciando aplicação (server)
 yarn start
 ```
  - Local:   http://localhost:3000/ 
-
-
-
-
