@@ -80,6 +80,10 @@ yarn start
  
  ![Database do projeto](https://github.com/Ary2941/My-project-1/assets/155399987/32a3902d-29d2-4be2-b663-37fdb82a1fcd)
 
+## Aplicações
+- Auxilio de pequenos produtores no combate de pragas e doenças (agricultura).
+
+
 ## Vantagens & Desvantagens
 
 - plataforma fácil de utilização
