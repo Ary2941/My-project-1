@@ -90,4 +90,4 @@ yarn start
  - Local:   http://localhost:3000/ 
 
 Nothing is worth the risk
-Noth
+Nothing is worth the risk
