@@ -88,7 +88,3 @@ Iniciando aplicação (server)
 yarn start
 ```
  - Local:   http://localhost:3000/ 
-
-Nothing is worth the risk
-Nothing is worth the risk
-Nothing is worth the risk
