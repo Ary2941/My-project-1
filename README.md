@@ -88,4 +88,4 @@ Iniciando aplicação (server)
 yarn start
 ```
  - Local:   http://localhost:3000/ 
-massa
+massa nixo
