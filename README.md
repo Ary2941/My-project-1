@@ -88,5 +88,4 @@ Iniciando aplicação (server)
 yarn start
 ```
  - Local:   http://localhost:3000/
-
-bruh
+x
