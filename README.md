@@ -28,7 +28,7 @@ O projeto é um protótipo de uma ferramenta web de um sistema hipotético de co
 - ORM feito em sequelize
 - Arquitetura MCV
 - Versionamento feito pelo Github
-
+x
 ## Requisitos funcionais
 
 - [RF001] o sistema permite cadastro de cliente
