@@ -87,4 +87,4 @@ Iniciando aplicação (server)
 ```bash
 yarn start
 ```
- - Local:   http://localhost:3000/ x
+ - Local:   http://localhost:3000/
